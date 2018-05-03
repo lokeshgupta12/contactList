@@ -1,9 +1,29 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+  <div class="navbar-header">
+      <a class="navbar-brand" href="#">Candidate List</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Lokesh Gupta<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#" (click)="signout()">Sign Out</a></li>
+        </ul>
+      </li>
+      </ul>
+  </div>
+</nav>
+
+
 <div class="row">
   <div class="col-md-5">
     <h2>Contact List</h2>
+    <input  type="text" #myInput class="form-control" placeholder="Item name..." [(ngModel)]="name" >
     <ul class="list-group">
       <li class="list-group-item"
-        *ngFor="let contact of contacts"
+        *ngFor="let contact of contacts | filter: name"
         (click)="selectContact(contact)"
         [class.active]="contact === selectedContact">
         {{contact.name}} {{contact.lastname}}
@@ -19,4 +39,8 @@
       [deleteHandler]="deleteContact">
     </contact-details>
   </div>
+</div>
+<div *ngIf="contactListError" class="alert alert-danger notifyClass alert-dismissible fade in">
+<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Error!</strong> {{errorMesage}}
 </div>

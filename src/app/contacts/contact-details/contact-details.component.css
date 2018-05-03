@@ -1,5 +1,11 @@
-.alert-danger {
+.alertDanger {
     color: #a94442;
     /* background-color: #f2dede; */
     /* border-color: #ebccd1; */
+}
+
+.notifyClass {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }

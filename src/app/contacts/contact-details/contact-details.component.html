@@ -9,7 +9,7 @@
     <div class="form-group">
       <label for="contact-name">First Name*</label>
       <input type="text" class="form-control" name="contact-name" [(ngModel)]="contact.name" placeholder="First Name" #name="ngModel" minlength="4" required>
-      <span *ngIf="name.invalid && (name.dirty || name.touched)" class="alert-danger">
+      <span *ngIf="name.invalid && (name.dirty || name.touched)" class="alertDanger">
       <span *ngIf="name.errors.required">Name is required</span>
       <span *ngIf="name.errors.minlength">Name must be at least 4 characters long</span>
       </span>
@@ -17,7 +17,7 @@
     <div class="form-group">
       <label for="contact-lastname">Last Name*</label>
       <input type="text" class="form-control" name="contact-lastname" [(ngModel)]="contact.lastname" placeholder="Last Name"  #lastname="ngModel" minlength="4" required>
-      <span *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="alert-danger">
+      <span *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="alertDanger">
       <span *ngIf="lastname.errors.required">Last Name is required</span>
       <span *ngIf="lastname.errors.minlength">Last Name must be at least 4 characters long</span>
       </span>
@@ -25,14 +25,14 @@
     <div class="form-group">
       <label for="contact-address">Address</label>
       <textarea class="form-control" name="contact-address" [(ngModel)]="contact.address" maxlength="100" placeholder="You Can type your address here!!" #address="ngModel"> </textarea>
-      <span *ngIf="address.invalid && (address.dirty || address.touched)" class="alert-danger">
+      <span *ngIf="address.invalid && (address.dirty || address.touched)" class="alertDanger">
       <span *ngIf="address.errors.maxlength">Address must be at least 40 characters long</span>
       </span>
     </div>
     <div class="form-group">
       <label for="contact-email">Email*</label>
       <input type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required class="form-control" name="contact-email" [(ngModel)]="contact.email" #contactemail="ngModel" placeholder="support@mlab.com"/>
-      <span *ngIf="contactemail.invalid && (contactemail.dirty || contactemail.touched)" class="alert-danger">
+      <span *ngIf="contactemail.invalid && (contactemail.dirty || contactemail.touched)" class="alertDanger">
       <span *ngIf="contactemail.errors.required">Email is required</span>
       <span *ngIf="contactemail.errors.pattern">Please input a valid email.</span>
       </span>
@@ -44,7 +44,7 @@
     <div class="form-group">
       <label for="contact-linkedinurl">Linkedin Profile Url*</label>
       <input class="form-control" required name="contact-linkedinurl" [(ngModel)]="contact.linkedinurl" #linkedinurl="ngModel" placeholder="www.linkedin.com/in/"/>
-       <span *ngIf="linkedinurl.invalid && (linkedinurl.dirty || linkedinurl.touched)" class="alert-danger">
+       <span *ngIf="linkedinurl.invalid && (linkedinurl.dirty || linkedinurl.touched)" class="alertDanger">
       <span *ngIf="linkedinurl.errors.required">Linkedin Url is required</span>
       </span>
     </div>
@@ -52,4 +52,13 @@
     <button class="btn btn-info" [disabled]="!myForm.valid" *ngIf="contact._id" (click)="updateContact(contact);myForm.reset()">Update</button>
     <button class="btn btn-danger" *ngIf="contact._id" (click)="deleteContact(contact._id);myForm.reset()">Delete</button>
   </form>
+</div>
+
+<div *ngIf="errorShow" class="alert alert-danger notifyClass alert-dismissible fade in">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Error!</strong> {{errorMessage}}
+</div>
+<div  *ngIf="success" class="alert alert-success notifyClass">
+<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Success!</strong> Successfully {{crudValue}}.
 </div>

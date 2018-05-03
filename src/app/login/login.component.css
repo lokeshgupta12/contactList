@@ -1,0 +1,52 @@
+.login{
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -159px;
+    margin-left: -250px;
+
+}
+
+
+.panel {
+    background-color: #fff;
+    border: 1px solid #bce8f1;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid #bce8f1;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    color: #31708f;
+    background-color: #d9edf7;
+}
+
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit;
+}
+.forgot {
+    float: right;
+    font-size: 12px;
+    position: relative;
+    top: -10px;
+}
+.forgot a{
+    color: #31708f;
+}
+
+.panel-body {
+    padding: 15px;
+    padding-top: 30px;
+}
+.notifyClass {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

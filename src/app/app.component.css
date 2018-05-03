@@ -1,0 +1,10 @@
+.notifyClass {
+    position: relative;
+    bottom: 0;
+    right: 0;
+}
+.alertsContainer[_ngcontent-c1] {
+    position: absolute;
+    top: -105px;
+    right: 5px;
+}

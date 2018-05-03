@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Contact } from '../contact';
 import { ContactService } from '../contact.service';
 import { ContactDetailsComponent } from '../contact-details/contact-details.component';
-
+import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'contact-list',
   templateUrl: './contact-list.component.html',
@@ -11,16 +11,18 @@ import { ContactDetailsComponent } from '../contact-details/contact-details.comp
 })
 
 export class ContactListComponent implements OnInit {
-
+  searchKeyword: string;
   contacts: Contact[]
   selectedContact: Contact
-
-  constructor(private contactService: ContactService) { }
+  contactListError : boolean;
+  errorMesage : string;
+  constructor(private contactService: ContactService, private route: Router) { }
 
   ngOnInit() {
      this.contactService
       .getContacts()
       .then((contacts: Contact[]) => {
+        this.contactListError = false;
         this.contacts = contacts.map((contact) => {
           if (!contact.phone) {
             contact.phone = {
@@ -30,6 +32,10 @@ export class ContactListComponent implements OnInit {
           }
           return contact;
         });
+      }, (err) => {
+        this.errorMesage = err
+        this.contactListError = true;
+        this.route.navigate([''])
       });
   }
 
@@ -74,7 +80,9 @@ export class ContactListComponent implements OnInit {
     this.selectContact(contact);
     return this.contacts;
   }
-
+  signout () {
+    localStorage.removeItem("token")
+  }
   updateContact = (contact: Contact) => {
     var idx = this.getIndexOfContact(contact._id);
     if (idx !== -1) {
@@ -83,4 +91,5 @@ export class ContactListComponent implements OnInit {
     }
     return this.contacts;
   }
+  
 }
