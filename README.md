@@ -15,7 +15,7 @@
   $ npm install
   $ node server
 	Open http://localhost:8080 in browser
-```
+
 #### Login credentials list
 
 	| Email | Password |
