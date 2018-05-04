@@ -1,8 +1,19 @@
 
-# Mean Contactlist Angular2
+# Contact List
+  This Application is build on MEAN
 
-Contact List is a RESTful API server and web application built with the MEAN (Angular 2) stack. It is a simple example that aims to concisely demonstrate basic MEAN and REST architecture. You can find the full tutorial here: https://devcenter.heroku.com/articles/mean-apps-restful-api.
+> See running application [here]()
 
-You can deploy a live copy of this application to Heroku with the button below.
+## how Application Work
+  first take clone of this apllication form
+  ```
+  $ "https://github.com/lokeshgupta12/contactList.git"
+  ```
+  Install the dependencies and devDependencies and start the server.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/chrisckchang/mean-contactlist-angular2)
+  ```
+  $ cd contactList
+  $ npm install
+  $ node server
+	Open http://localhost:8080 in browser
+```
