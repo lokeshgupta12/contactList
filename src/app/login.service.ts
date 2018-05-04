@@ -12,10 +12,11 @@ private loginUrl = '/api/login';
                  .then(response => response.json())
                  .catch(this.handleError);
     }
+   
+   // handle error
     private handleError (error: any): Promise<any> {
       let errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-      console.error(errMsg); // log to console
       return Promise.reject(errMsg);
     }
 }

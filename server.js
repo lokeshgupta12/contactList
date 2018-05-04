@@ -42,6 +42,8 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:2701
     console.log("App now running on port", port);
   });
 });
+
+// check token is valid or not
 function checkTokenValidOrNot(token) {
     var isTokenValidFlag = false
     isTokenValidFlag = jwt.verify(token, "candidateList", function(err, decoded) {
@@ -49,6 +51,8 @@ function checkTokenValidOrNot(token) {
     });
     return isTokenValidFlag;
 }
+
+// check token is header or not
 function checkToken(req, res) {
   if(!req.headers.token) {
      handleError(res, "Please set auth token in header", "Please set auth token in header")

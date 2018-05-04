@@ -17,7 +17,11 @@ export class ContactListComponent implements OnInit {
   contactListError : boolean;
   errorMesage : string;
   constructor(private contactService: ContactService, private route: Router) { }
-
+  
+  /*  methodName  : ngOnInit
+      description : this method is call when contact list component initialize a method
+                   "getContacts" that all the contact list form database
+  */
   ngOnInit() {
      this.contactService
       .getContacts()
@@ -35,20 +39,29 @@ export class ContactListComponent implements OnInit {
       }, (err) => {
         this.errorMesage = err
         this.contactListError = true;
+        localStorage.removeItem("token")
         this.route.navigate([''])
       });
   }
 
+  /*  methodName  : getIndexOfContact
+      description : this method return the contact index
+      @param      : contactId(String) Id of particular contact
+  */
   private getIndexOfContact = (contactId: String) => {
     return this.contacts.findIndex((contact) => {
       return contact._id === contactId;
     });
   }
 
+  /*  methodName  : selectContact
+      description : this method select particular contact
+      @param      : contact(object) particular contact Item
+  */
   selectContact(contact: Contact) {
     this.selectedContact = contact
   }
-
+  
   createNewContact() {
     var contact: Contact = {
       name: '',
@@ -65,7 +78,11 @@ export class ContactListComponent implements OnInit {
     // By default, a newly-created contact will have the selected state.
     this.selectContact(contact);
   }
-
+  
+  /*  methodName  : deleteContact
+      description : this method delete particular contact In list
+      @params : contactId (String) id, whose contact is deleted
+  */
   deleteContact = (contactId: String) => {
     var idx = this.getIndexOfContact(contactId);
     if (idx !== -1) {
@@ -75,14 +92,27 @@ export class ContactListComponent implements OnInit {
     return this.contacts;
   }
 
+  /*  methodName  : createContact
+      description : this method is add particular contact In list
+      @params : contact (object) contact object
+  */
   addContact = (contact: Contact) => {
     this.contacts.push(contact);
     this.selectContact(contact);
     return this.contacts;
   }
+
+  /*  methodName  : signout
+      description : this method remove localstroge item when we click on signout button
+  */
   signout () {
     localStorage.removeItem("token")
   }
+
+  /*  methodName  : updateContact
+      description : this method is update particular contact In list
+      @params : contact (object) contact object
+  */
   updateContact = (contact: Contact) => {
     var idx = this.getIndexOfContact(contact._id);
     if (idx !== -1) {

@@ -6,6 +6,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class ContactService {
     private contactsUrl = '/api/contacts';
+    // set token in header
     private headers = new Headers({
       token : localStorage.getItem('token')
     })
@@ -45,7 +46,7 @@ export class ContactService {
                  .then(response => response.json() as Contact)
                  .catch(this.handleError);
     }
-
+    // handle errors
     private handleError (error: any): Promise<any> {
       let errorMessage = JSON.parse(error._body).error
       let errMsg = (errorMessage) ? errorMessage :

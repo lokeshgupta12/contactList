@@ -1,11 +1,8 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
   <div class="navbar-header">
-      <a class="navbar-brand" href="#">Candidate List</a>
+      <a class="navbar-brand" href="#">Contact List</a>
     </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-    </ul>
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Lokesh Gupta<span class="caret"></span></a>
         <ul class="dropdown-menu">
@@ -20,16 +17,28 @@
 <div class="row">
   <div class="col-md-5">
     <h2>Contact List</h2>
-    <input  type="text" #myInput class="form-control" placeholder="Item name..." [(ngModel)]="name" >
-    <ul class="list-group">
-      <li class="list-group-item"
-        *ngFor="let contact of contacts | filter: name"
+    <input  type="text" #myInput class="form-control" placeholder="search contact..." [(ngModel)]="name" ><br/>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let contact of contacts | filter: name"
         (click)="selectContact(contact)"
         [class.active]="contact === selectedContact">
-        {{contact.name}} {{contact.lastname}}
-      </li>
-    </ul>
-    <button class="btn btn-warning" (click)="createNewContact()">New</button>
+        <td>{{contact.name}}</td>
+        <td>{{contact.lastname}}</td>
+        <td> {{contact.email}}</td>
+      </tr>
+      
+     
+    </tbody>
+  </table>
+  <button class="btn btn-warning" (click)="createNewContact()">New</button>
   </div>
   <div class="col-md-5 col-md-offset-2">
     <contact-details

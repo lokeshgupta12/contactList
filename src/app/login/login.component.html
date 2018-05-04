@@ -2,7 +2,6 @@
     <div class="panel panel-info">
     <div class="panel-heading">
         <div class="panel-title">Sign In</div>
-        <div class="forgot"><a href="#">Forgot password?</a></div>
     </div>
     <div class="panel-body">
     <form  (ngSubmit)="login()" #f="ngForm" novalidate>
@@ -13,7 +12,6 @@
 	            <span *ngIf="email.errors.required" class="redItalic">Email required.</span>
 	            <span *ngIf="!email.errors.required && email.errors.email" class="redItalic">Email not valid.</span>
             </div>
-            <!-- <div *ngIf="(email.touched && !email.valid) || (f.submitted && !email.valid)" class="help-block">Email is required</div> -->
         </div>
         <div class="form-group">
             <label for="password">Password</label>

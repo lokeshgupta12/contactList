@@ -1,9 +1,8 @@
+/*this class is user form form validation */
 .alertDanger {
     color: #a94442;
-    /* background-color: #f2dede; */
-    /* border-color: #ebccd1; */
 }
-
+/* this class is use for notification alert*/
 .notifyClass {
     position: absolute;
     bottom: 0;

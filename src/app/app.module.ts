@@ -12,7 +12,6 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginResolver } from './guards/login.resolve';
 import { LoginService } from './login.service';
-import { AlertsModule } from 'angular-alert-module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +25,6 @@ import { AlertsModule } from 'angular-alert-module';
     FormsModule,
     HttpModule,
     AppRouting,
-    AlertsModule.forRoot()
   ],
   providers: [
    AuthGuard,

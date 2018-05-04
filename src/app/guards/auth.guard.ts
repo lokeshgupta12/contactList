@@ -20,8 +20,3 @@ export class AuthGuard implements CanActivate {
 
     }
 }
-
-
-// interface CanActivate { 
-//   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot)
-// }

@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { LoginService } from '../login.service';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AlertsService } from 'angular-alert-module';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,22 +14,24 @@ export class LoginComponent implements OnInit {
   @ViewChild('f') loginForm : NgForm;
   constructor(private loginservice : LoginService,
               private route: ActivatedRoute,
-              private router: Router,
-              private alert : AlertsService) { }
+              private router: Router) { }
 
   ngOnInit() {
   }
+
+  /*  methodName  : login
+      description : this method is call when we click login button. check login credentials
+                    through "checkLogin" service
+  */
   login() {
   	this.loginservice.checkLogin({username: this.loginForm.value.email, password: this.loginForm.value.password})
   	.then((userValue: any) => {
       this.webservicePass =true;
       this.webserviceError = false;
-       this.alert.setMessage('Login saved !','success');
       localStorage.setItem('token',userValue.data.token);
         this.router.navigate(["home"]);
       }, (err) => {
         this.webserviceError = true;
-        console.log(err, "err")
       });
   }
 }
