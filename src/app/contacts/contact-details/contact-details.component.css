@@ -1,6 +1,11 @@
 /*this class is user form form validation */
 .alertDanger {
     color: #a94442;
+    position: absolute;
+    z-index: 1px;
+    z-index: 1;
+    padding: 1px 0px !important;
+    right: 16px;
 }
 /* this class is use for notification alert*/
 .notifyClass {
