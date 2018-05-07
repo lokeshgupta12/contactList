@@ -2,7 +2,6 @@
 # Contact List
   This Application is build on MEAN
 
-> See running application [here]()
 
 ## How Application Work
   first take clone of this apllication form
